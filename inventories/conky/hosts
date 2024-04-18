@@ -1,0 +1,5 @@
+# This environment inventory file for conky
+#
+# The group of all server of conky
+[conky]
+localhost

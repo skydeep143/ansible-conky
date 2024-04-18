@@ -1,0 +1,25 @@
+- name: Copy conky.conf to /etc/conky/
+  copy:
+    src: "files/conky.conf"
+    dest: "/etc/conky/conky.conf"
+    mode: "0644"
+    backup: yes
+  become: yes
+- name: Copy conky.desktop to /etc/conky/
+  copy:
+    src: "files/conky.desktop"
+    dest: "/etc/conky/conky.desktop"
+    mode: "0644"
+  become: yes
+- name: Copy conky.sh to /etc/profile.d/
+  copy:
+    src: "files/conky.sh"
+    dest: "/etc/profile.d/conky.sh"
+    mode: "0644"
+  become: yes
+- name: Copy conkystart.sh to /usr/bin/
+  copy:
+    src: "files/conkystart.sh"
+    dest: "/usr/bin/conkystart.sh"
+    mode: "0755"
+  become: yes

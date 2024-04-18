@@ -1,0 +1,13 @@
+---
+  - name: Shell Examples
+    hosts: localhost
+    tasks:
+
+    - name: Check Date with Shell command
+      shell:
+         "date"
+      register: datecmd
+      tags: datecmd
+
+    - debug: msg="{{datecmd.stdout}}"
+  

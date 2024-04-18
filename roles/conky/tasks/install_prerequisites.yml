@@ -1,0 +1,28 @@
+- name: Install EPEL repository
+  yum:
+    name: epel-release
+    state: present
+  become: yes
+
+- name: Ensure EPEL repo is enabled
+  ini_file:
+    dest: /etc/yum.repos.d/epel.repo
+    section: epel
+    option: enabled
+    value: '1'
+  become: True
+
+#- name: Conduct yum update 
+#  yum: 
+#    name: '*' 
+#    state: latest
+#    update_cache: True
+#  become: yes
+- name: Install a list of packages wget,md5sum and conky
+  yum:
+    name:
+      - wget
+      - isomd5sum
+      - conky
+    state: present
+  become: yes

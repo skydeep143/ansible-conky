@@ -1,0 +1,4 @@
+# shared hosts/groups across inventories
+[ansible_controller]
+localhost ansible_connection=local
+

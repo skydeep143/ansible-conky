@@ -1,0 +1,38 @@
+---
+# tasks file for conky
+#
+- name: check os family is Redhat
+  assert:
+    that:
+    # Support only RedHat family
+      - ansible_os_family == "RedHat" 
+- name: Check if os distribution is Redhat or Almalinux. Also check pkg manager is yum or dng
+  assert:
+    that:
+      - ansible_distribution == 'RedHat' or ansible_distribution == 'AlmaLinux' # Ensure it's a Red Hat system or AlmaLinux
+      - ansible_pkg_mgr == 'yum' or ansible_pkg_mgr == 'dnf' # Ensure it's using yum package manager
+- name: Check if any desktop environment package is installed
+  shell: rpm -q gnome-desktop3 xfce4 kde-desktop lxde | grep -v not
+  register: desktop_check
+  ignore_errors: true
+
+- name: Fail the playbook if no desktop package is installed
+  fail:
+    msg: "No desktop package installed"
+  when: desktop_check.rc != 0
+
+- name: Get the value of XDG_CURRENT_DESKTOP environment variable
+  command: "echo $XDG_CURRENT_DESKTOP"
+  register: xdg_current_desktop
+  changed_when: false
+
+- name: Assert that XDG_CURRENT_DESKTOP variable value should be GNOME or KDE or XFCE
+  assert:
+    that:
+      - xdg_current_desktop.stdout is regex('^(GNOME|KDE|XFCE)$')
+    fail_msg: "XDG_CURRENT_DESKTOP variable value either not set or not GNOME/KDE/XFCE"
+    success_msg: "XDG_CURRENT_DESKTOP variable value is {{ xdg_current_desktop.stdout }} "
+
+- import_tasks: install_prerequisites.yml
+
+- import_tasks: setup_conky.yml

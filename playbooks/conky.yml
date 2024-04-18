@@ -1,0 +1,9 @@
+--- 
+# This playbook used to install conky and enable for all users
+#
+- hosts: 
+    - conky
+  roles:
+    - role: conky
+      tags: [ conky ]
+

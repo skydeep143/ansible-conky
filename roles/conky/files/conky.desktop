@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Application;System;Settings
+Comment=Autostart Conky System Stats Desktop Display
+Encoding=UTF-8
+Exec=/usr/bin/conkystart.sh >> ~/.conky/conky.log 2>&1 &
+Hidden=false
+Name=Conky
+Terminal=false
+Type=Application
+Version=1.0
+Icon=conky.png
