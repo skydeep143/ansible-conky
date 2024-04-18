@@ -52,5 +52,5 @@ To execute this setup, the following prerequisites are required:
 
 ## Reference 
 
- 1. [Install AlmaLinux] (docs/install-os.mp4)
+ 1. [Install AlmaLinux](docs/install-os.mp4)
  2. [Run playbook to install Conky on AlmaLinux/Redhat](docs/setup-conky.mp4)
