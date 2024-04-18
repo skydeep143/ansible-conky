@@ -14,7 +14,7 @@ To execute this setup, the following prerequisites are required:
 
 ## How to test this setup
 
- - [ ] **Installed AlmaLinux 8.6 Linux Operating Sytem using virtual box** : Image downloaded from here https://www.linuxvmimages.com/images/almalinux-8/. [More detail refer from here](test) 
+ - [ ] **Installed AlmaLinux 8.6 Linux Operating Sytem using virtual box** : Image downloaded from here https://www.linuxvmimages.com/images/almalinux-8/. [More detail refer from here](docs/install-os.mp4) 
  - [ ] **Installed prerequisites on AlmaLinux VM :** 
  - Install python3.8 and git i.e `yum install python38 git`
  - Setup path for python3.8 as default python3 
@@ -52,5 +52,5 @@ To execute this setup, the following prerequisites are required:
 
 ## Reference 
 
- 1. Install AlmaLinux [enter link description here](test)
- 2. Run playbook to install Conky on AlmaLinux/Redhat [enter link description here](test)
+ 1. [Install AlmaLinux] (docs/install-os.mp4)
+ 2. [Run playbook to install Conky on AlmaLinux/Redhat](docs/setup-conky.mp4)
